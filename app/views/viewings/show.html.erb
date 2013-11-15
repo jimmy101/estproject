@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @viewing.date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @viewing.time %>
+</p>
+
+<p>
+  <b>Agent:</b>
+  <%= @viewing.agent.first_name %>
+</p>
+
+<p>
+  <b>Buyer:</b>
+  <%= @viewing.buyer.last_name %>
+</p>
+
+<p>
+  <b>Property:</b>
+  <%= @viewing.property.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_viewing_path(@viewing) %> |
+<%= link_to 'Back', viewings_path %>

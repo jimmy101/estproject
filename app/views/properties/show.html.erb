@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>  
+<p>
+	
+
+<p>
+  <b>Address:</b>
+  <%= @property.address %>
+</p>
+
+<p>
+  <b>No of beds:</b>
+  <%= @property.no_of_beds %>
+</p>
+
+<p>
+  <b>Price €</b>
+  <%= @property.price %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= image_tag(@property.photo,:size => "100x100") %>
+
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @property.description %>
+</p>
+
+<p>
+  <b>Agent:</b>
+  <%= @property.agent.first_name%> 
+</p>
+
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

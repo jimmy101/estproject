@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @agent.first_name %>
+</p> 
+<% if !@agent.properties.empty? %> 
+	<b>Propertys this agent is showing : </b><br \>   
+		<% @agent.properties.each do |b| %> 
+		  <%= link_to b.address,b %>    		  	  	
+   <%end%>
+<% else %>
+   <p>This agent has no properties to show</p>
+	<% end %>
+<p>
+
+
+<p>
+	<b>Last name:</b>
+	<%= @agent.last_name %>
+</p>
+
+<p>
+	<b>Email:</b>
+	<%= @agent.email %>
+</p>
+
+<p>
+	<b>Phone:</b>
+	<%= @agent.phone %>
+</p>   
+
+
+
+<%= link_to 'Edit', edit_agent_path(@agent) %> |
+<%= link_to 'Back', agents_path %> 
+<li><%= link_to "properties", properties_path %></li> 
+  
+<li><%= link_to "buyers", buyers_path %></li>
+<li><%= link_to "viewings", viewings_path %></li>
+
+
