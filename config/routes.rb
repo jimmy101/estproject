@@ -1,8 +1,16 @@
 Est::Application.routes.draw do
  
     
+  resources :posts
+
     get"properties/indexTwo"
-    get "pages/new" 
+     get"properties/indexThree"
+     get"properties/photo_gallery"    
+    get "pages/new"
+    get "pages/photo_gallery" 
+    resources :properties do
+      resources :posts
+    end
   resources :properties
   resources :buyers
   resources :viewings
@@ -14,13 +22,19 @@ Est::Application.routes.draw do
   get '/sessions', :to => 'sessions#create'
  
   get '/properties', :to => 'properties#indexTwo' 
+  get '/properties', :to => 'properties#indexThree' 
   #get '/pages/new', :to => 'pages#new'
   
 
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy' 
+  match '/search', :to =>'properties#search' 
+  match '/indexThree', :to =>'properties#indexThree'
+  match '/indexTwo', :to =>'properties#indexTwo'
+  match '/photo_gallery', :to =>'properties#photo_gallery'  
+    
    
-
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

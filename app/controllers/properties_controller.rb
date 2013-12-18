@@ -1,22 +1,48 @@
 class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json  
- # before_filter :authorise, :except => :index
-  def index
-    @properties = Property.all
-    @properties = Property.paginate(:page => params[:page], :per_page => 4)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @properties }
-    end
-  end    
-  def indexTwo
-     @properties = Property.all
-      @properties = Property.paginate(:page => params[:page], :per_page => 4)  
+  #before_filter :authorise
+ def index
+   @properties = Property.all
+   @properties = Property.paginate(:page => params[:page], :per_page => 3)
+   respond_to do |format|
+     format.html # index.html.erb
+     format.json { render json: @properties }
+   end
+ end  
+    
+ def indexTwo
+   @properties = Property.all
+      @properties = Property.paginate(:page => params[:page], :per_page => 3)  
      respond_to do |format|
        format.html # indexTwo.html.erb
        format.json { render json: @properties }
      end
+   end  
+   
+   def indexThree
+      @property = Property.find(params[:id])  
+       respond_to do |format|
+          format.html # indexThree.html.erb
+          format.json { render json: @property }
+        end
+        
+      end  
+      
+      def photo_gallery
+        @property = Property.find(params[:id])           
+           respond_to do |format|
+             format.html # photo_gallery.html.erb
+             format.json { render json: @properties }
+           end
+         end
+   
+   def search 
+     @properties = Property.paginate(:page => params[:page], :per_page => 2).search params[:q] 
+     unless @properties.empty?
+                   
+     render 'index'
+     end 
    end
 
   # GET /properties/1
@@ -90,4 +116,5 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+ 
 end

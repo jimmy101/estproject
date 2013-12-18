@@ -1,3 +1,5 @@
+
+<%= stylesheet_link_tag    "agents", :media => "all" %> 
 <%= form_for(@viewing) do |f| %>
   <% if @viewing.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +15,7 @@
 
  <div class="field">
     <%= f.label :date %><br />
-    <%= f.date_select :date ,:start_year => Date.current.year, :include_blank => ""%>
+    <%= f.text_field :date, :id => :datepicker%>
   </div>
   <div class="field">
     <%= f.label :time %><br />

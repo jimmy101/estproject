@@ -43,7 +43,8 @@ class AgentsController < ApplicationController
     @agent = Agent.new(params[:agent])
 
     respond_to do |format|
-      if @agent.save
+      if @agent.save 
+        Blogmailer.register(@agent).deliver
         format.html { redirect_to @agent, notice: 'Agent was successfully created.' }
         format.json { render json: @agent, status: :created, location: @agent }
       else

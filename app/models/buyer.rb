@@ -1,5 +1,5 @@
 class Buyer < ActiveRecord::Base  
-  has_secure_password
+  
   belongs_to :agent 
    
    has_many :viewings, :dependent => :delete_all 

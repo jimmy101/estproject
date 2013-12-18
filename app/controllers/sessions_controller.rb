@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   def destroy 
     if signed_in?
       session[:agent_id]= nil
-      redirect_to agents_path 
+      redirect_to properties_indexTwo_path 
     else
       flash[:notice]= "You must be signed in first"
       redirect_to signin_path

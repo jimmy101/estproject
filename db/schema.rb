@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109164410) do
+ActiveRecord::Schema.define(:version => 20131217101021) do
 
   create_table "agents", :force => true do |t|
     t.string   "first_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20131109164410) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "id_image"
   end
 
   create_table "buyers", :force => true do |t|
@@ -34,15 +35,32 @@ ActiveRecord::Schema.define(:version => 20131109164410) do
     t.string   "password_digest"
   end
 
+  create_table "posts", :force => true do |t|
+    t.text     "content"
+    t.integer  "agent_id"
+    t.integer  "property_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "properties", :force => true do |t|
     t.string   "address"
     t.string   "no_of_beds"
-    t.decimal  "price"
+    t.string   "price"
     t.string   "photo"
     t.text     "description"
     t.integer  "agent_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image"
+    t.string   "image4"
+    t.string   "image5"
+    t.string   "image6"
+    t.string   "new_image"
   end
 
   create_table "viewings", :force => true do |t|

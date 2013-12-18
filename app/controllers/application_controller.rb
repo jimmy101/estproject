@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper 
 
   def authorise
-    unless signed_in
+    unless signed_in?
       store_location
       redirect_to signin_path, :notice =>"Please sign in to access this page"
     end
